@@ -8,7 +8,7 @@ const User = db.define('users',{
         type: DataTypes.STRING
     } ,
      description: {
-        type: DataTypes.STRING
+        type: DataTypes.JSON
     }
 },{
     freezeTableName:true

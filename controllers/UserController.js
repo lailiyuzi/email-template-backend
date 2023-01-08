@@ -1,3 +1,4 @@
+import { parse } from "path";
 import User from "../models/UserModel.js";
 
 export const getUsers = async(req, res) =>{
@@ -25,7 +26,7 @@ export const getUserById = async(req, res) =>{
 export const createUser = async(req, res) =>{
     try {
         await User.create(req.body);
-        console.log(req.body.title)
+        console.log(req.body)
         res.status(200).json({msg: "User Created"})
               
     } catch (error) {
@@ -54,6 +55,21 @@ export const deleteUser = async(req, res) =>{
             }
         });
         res.status(200).json({msg: "User Deleted"});
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
+export const lastUser = async(req, res) =>{
+    try {
+        const lastPost = await User.findOne({
+            where:{
+                id: req.params.id
+            }
+        }).sort({ id: -1});
+        res.status(200).json(lastPost)
+        console.log(lastPost)
+       
     } catch (error) {
         console.log(error.message);
     }

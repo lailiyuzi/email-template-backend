@@ -8,7 +8,7 @@ POST http://localhost:5000/users
 Content-Type: application/json
 
 {
-    "title": "ebefhowerfjvodu",
+    "title": "Flower",
     "description": "dhefhef"
 }
 
