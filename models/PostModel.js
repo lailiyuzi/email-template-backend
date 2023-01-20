@@ -3,7 +3,7 @@ import db from "../config/Database.js";
 
 const {DataTypes} = Sequelize;
 
-const User = db.define('users',{
+const Post = db.define('posts',{
      title: {
         type: DataTypes.STRING
     } ,
@@ -14,7 +14,7 @@ const User = db.define('users',{
     freezeTableName:true
 });
 
-export default User;
+export default Post;
 
 (async()=>{
     await db.sync();
